@@ -1,0 +1,17 @@
+
+.mat-nav-list {
+    text-align: right;
+    display: inline-block;
+}
+
+.mat-list-base .mat-list-item {
+    display: inline-block;
+    width: fit-content;
+}
+.signinBtn {
+    text-align: left;
+}
+
+.mat-form-field-type-mat-select {
+    width: 50px;
+}

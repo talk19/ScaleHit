@@ -1,0 +1,22 @@
+<mat-toolbar fxLayout="row">
+  <div fxFlex="80">
+    <mat-form-field>
+      <mat-select [(value)]="selectedLang">
+        <mat-option value="he-il">HE</mat-option>
+        <mat-option value="en-us">EN</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-nav-list>
+      <mat-list-item>
+        <a mat-list-item href="#">תוכניות</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-list-item href="#">אודות</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  <mat-action-list fxFlex="20" class="signinBtn">
+    <button mat-button (click)="login()">התחברות</button>
+    <button mat-stroked-button (click)="register()">הרשמה</button>
+  </mat-action-list>
+</mat-toolbar>

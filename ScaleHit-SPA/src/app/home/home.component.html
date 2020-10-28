@@ -1,0 +1,4 @@
+<app-homeNav (showRegister)="showRegisterMode($event)" (showLogin)="showLoginMode($event)"></app-homeNav>
+<h1>עמוד בית</h1>
+<app-login *ngIf="loginMode"></app-login>
+<app-register *ngIf="registerMode"></app-register>

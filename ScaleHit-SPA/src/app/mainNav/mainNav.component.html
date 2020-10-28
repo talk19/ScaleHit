@@ -1,0 +1,17 @@
+<mat-toolbar fxLayout="row">
+  <p fxFlex="70">ScaleHIT</p>
+  <div fxFlex="30">
+    <mat-form-field>
+      <mat-select [(value)]="selectedLang">
+        <mat-option value="he-il">HE</mat-option>
+        <mat-option value="en-us">EN</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(value)]="userMsg">
+        <mat-option value="hello">שלום יוזר</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button (click)="logOut()">התנתקות</button>
+  </div>
+</mat-toolbar>

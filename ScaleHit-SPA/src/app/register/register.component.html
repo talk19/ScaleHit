@@ -1,0 +1,14 @@
+<h2>הרשמה</h2>
+<form #loginForm="ngForm" (ngSubmit)="register()">
+  <mat-form-field appearance="standard">
+    <mat-label>שם משתמש</mat-label>
+    <input matInput required placeholder="כתובת מייל" [(ngModel)]="model.username" name="username">
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>סיסמה</mat-label>
+    <input matInput required type="password" placeholder="סיסמה" [(ngModel)]="model.password" name="password">
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">הרשמה</button>
+</form>
