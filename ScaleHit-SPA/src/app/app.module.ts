@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { RouterModule } from '@angular/router';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -16,6 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 
+
 import { MainNavComponent } from './mainNav/mainNav.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
@@ -23,16 +26,23 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeNavComponent } from './homeNav/homeNav.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { ScalesComponent } from './scales/scales.component';
+import { PlansComponent } from './plans/plans.component';
+import { appRoutes } from './routes';
+
 
 @NgModule({
-  declarations: [						
+  declarations: [								
     AppComponent,
       ValueComponent,
       MainNavComponent,
       LoginComponent,
       HomeComponent,
       RegisterComponent,
-      HomeNavComponent
+      HomeNavComponent,
+      ScalesComponent,
+      PlansComponent
    ],
   imports: [
     BrowserModule,
@@ -40,6 +50,7 @@ import { HomeNavComponent } from './homeNav/homeNav.component';
     FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    RouterModule.forRoot(appRoutes),
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
@@ -50,7 +61,8 @@ import { HomeNavComponent } from './homeNav/homeNav.component';
     MatSelectModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    ErrorInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

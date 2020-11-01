@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +18,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using ScaleHit.API.Data;
+using ScaleHit.API.helpers;
 
 namespace ScaleHit.API
 {
@@ -50,6 +54,27 @@ namespace ScaleHit.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else {
+                // handel any exception may happened
+                app.UseExceptionHandler(builder => {
+                    builder.Run(async context => {
+                        
+                        //set the error code as internal server error 500 - any error in the API
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+                        //get the error itself
+                        var error = context.Features.Get<IExceptionHandlerFeature>();
+
+                        if(error != null) {
+                            //make is possible to get the error in the client side
+                            context.Response.AddApplicationError(error.Error.Message);
+
+                            //send the error as the response
+                            await context.Response.WriteAsync(error.Error.Message);
+                        }
+                    });
+                });
             }
 
             //app.UseHttpsRedirection();

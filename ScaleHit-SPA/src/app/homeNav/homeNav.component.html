@@ -8,15 +8,19 @@
     </mat-form-field>
     <mat-nav-list>
       <mat-list-item>
-        <a mat-list-item href="#">תוכניות</a>
+        <a mat-list-item [routerLink]="['/plans']" routerLinkActive="router-link-active" >תוכניות</a>
       </mat-list-item>
       <mat-list-item>
         <a mat-list-item href="#">אודות</a>
       </mat-list-item>
     </mat-nav-list>
   </div>
-  <mat-action-list fxFlex="20" class="signinBtn">
-    <button mat-button (click)="login()">התחברות</button>
-    <button mat-stroked-button (click)="register()">הרשמה</button>
-  </mat-action-list>
+  <mat-nav-list fxFlex="20" class="signinBtn">
+    <mat-list-item>
+      <a mat-list-item [routerLink]="['/login']" routerLinkActive="router-link-active">התחברות</a>
+    </mat-list-item>
+    <mat-list-item>
+      <a mat-list-item [routerLink]="['/register']" routerLinkActive="router-link-active">הרשמה</a>
+    </mat-list-item>
+  </mat-nav-list>
 </mat-toolbar>

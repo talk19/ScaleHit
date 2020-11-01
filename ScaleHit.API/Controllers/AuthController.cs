@@ -51,6 +51,8 @@ namespace ScaleHit.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            
+
             //method in AuthRepository, acsses via the repository interface called _repo
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
