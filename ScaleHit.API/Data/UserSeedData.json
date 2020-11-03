@@ -1,0 +1,155 @@
+[
+    {
+      "Username": "aaa@gmail.com",
+      "Password": 1234,
+      "firstName": "Pansy",
+      "lastName": "Fitzgerald",
+      "editorType": "standart",
+      "phone": "(822) 545-3452",
+      "country": "israel",
+      "organization": "HIT",
+      "Scales": [
+        {
+          "ScaleTitle": "title1",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 6,
+          "MinPoint": 0,
+          "ScaleCode": 793,
+          "IsPublish": true,
+          "IsLive": false,
+          "IsLinearNavigation": false,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title2",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 9,
+          "MinPoint": 1,
+          "ScaleCode": 663,
+          "IsPublish": true,
+          "IsLive": false,
+          "IsLinearNavigation": false,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title3",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 10,
+          "MinPoint": 0,
+          "ScaleCode": 363,
+          "IsPublish": true,
+          "IsLive": false,
+          "IsLinearNavigation": true,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        }
+      ]
+    },
+    {
+      "Username": "bbb@gmail.com",
+      "Password": 1234,
+      "firstName": "Darla",
+      "lastName": "Duncan",
+      "editorType": "standart",
+      "phone": "(854) 531-2261",
+      "country": "israel",
+      "organization": "HIT",
+      "Scales": [
+        {
+          "ScaleTitle": "title4",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 1,
+          "MinPoint": 8,
+          "ScaleCode": 701,
+          "IsPublish": true,
+          "IsLive": false,
+          "IsLinearNavigation": false,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title5",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 3,
+          "MinPoint": 2,
+          "ScaleCode": 412,
+          "IsPublish": true,
+          "IsLive": false,
+          "IsLinearNavigation": true,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title6",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 5,
+          "MinPoint": 6,
+          "ScaleCode": 102,
+          "IsPublish": true,
+          "IsLive": true,
+          "IsLinearNavigation": false,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        }
+      ]
+    },
+    {
+      "Username": "ccc@gmail.com",
+      "Password": 1234,
+      "firstName": "Stephenson",
+      "lastName": "Browning",
+      "editorType": "standart",
+      "phone": "(941) 513-3330",
+      "country": "israel",
+      "organization": "HIT",
+      "Scales": [
+        {
+          "ScaleTitle": "title7",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 5,
+          "MinPoint": 3,
+          "ScaleCode": 455,
+          "IsPublish": false,
+          "IsLive": false,
+          "IsLinearNavigation": true,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title8",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 5,
+          "MinPoint": 8,
+          "ScaleCode": 393,
+          "IsPublish": false,
+          "IsLive": true,
+          "IsLinearNavigation": true,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        },
+        {
+          "ScaleTitle": "title9",
+          "ScaleType": "other",
+          "PointsValue": "point",
+          "MaxPoint": 10,
+          "MinPoint": 1,
+          "ScaleCode": 370,
+          "IsPublish": true,
+          "IsLive": true,
+          "IsLinearNavigation": true,
+          "ScaleTopic": "topic",
+          "GradeType": "grade"
+        }
+      ]
+    }
+  ]
