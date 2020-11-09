@@ -1,0 +1,56 @@
+<app-mainNav></app-mainNav>
+
+<h2>הפרופיל שלי</h2>
+
+<section>
+  <h3>פרטים אישיים</h3>
+
+  <form>
+    <mat-form-field>
+      <mat-label>שם פרטי</mat-label>
+      <input matInput placeholder="שם פרטי" value="{{user.firstName}}"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>שם משפחה</mat-label>
+      <input matInput placeholder="שם משפחה" value="{{user.lastName}}"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>טלפון</mat-label>
+      <input matInput placeholder="טלפון" value="{{user.phone}}"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>מדינה</mat-label>
+      <input matInput placeholder="מדינה" value="{{user.country}}"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>שם ארגון</mat-label>
+      <input matInput placeholder="שם ארגון" value="{{user.organization}}"/>
+    </mat-form-field>
+  </form>
+
+</section>
+
+<section>
+  <h3>פרטי חשבון</h3>
+
+  <section>
+    <h4>שם משתמש</h4>
+    <p>{{user.username}}</p>
+    <button mat-button>שינוי סיסמה</button>
+  </section>
+
+  <section>
+    <h4>תאריך רכישה אחרון</h4>
+    <p>{{user.planStarted}}</p>
+  </section>
+
+  <section>
+    <h4>תאריך חידוש קרוב</h4>
+    <p>{{user.planExpired}}</p>
+  </section>
+
+</section>

@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-mainNav',
   templateUrl: './mainNav.component.html',
-  styleUrls: ['./mainNav.component.css']
+  styleUrls: ['./mainNav.component.css'],
 })
+
 export class MainNavComponent implements OnInit {
   selectedLang = 'he-il';
-  userMsg = 'hello';
-  constructor() { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -21,7 +23,7 @@ export class MainNavComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('token');
-    console.log('loged out');
+    this.router.navigate(['/home']);
   }
 
 }

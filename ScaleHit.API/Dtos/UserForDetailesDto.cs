@@ -17,6 +17,7 @@ namespace ScaleHit.API.Dtos
         public DateTime RegisterTime { get; set; }
         public DateTime LastEnter { get; set; }
         public DateTime PlanStarted { get; set; }
+        public DateTime PlanExpired { get; set; }
         public ICollection<ScalesForDetailesDto> Scales { get; set; }
     }
 }

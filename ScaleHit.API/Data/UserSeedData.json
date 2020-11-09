@@ -4,10 +4,13 @@
       "Password": 1234,
       "firstName": "Pansy",
       "lastName": "Fitzgerald",
-      "editorType": "standart",
+      "editorType": "admin",
       "phone": "(822) 545-3452",
-      "country": "israel",
+      "country": "spain",
       "organization": "HIT",
+      "status": "active",
+      "registerTime": "2017-08-02",
+      "lastEnter": "2020-11-04",
       "Scales": [
         {
           "ScaleTitle": "title1",
@@ -59,6 +62,9 @@
       "phone": "(854) 531-2261",
       "country": "israel",
       "organization": "HIT",
+      "status": "mailPending",
+      "registerTime": "2020-12-02",
+      "lastEnter": "2020-12-02",
       "Scales": [
         {
           "ScaleTitle": "title4",
@@ -106,10 +112,15 @@
       "Password": 1234,
       "firstName": "Stephenson",
       "lastName": "Browning",
-      "editorType": "standart",
+      "editorType": "advanced",
       "phone": "(941) 513-3330",
       "country": "israel",
       "organization": "HIT",
+      "status": "deleted",
+      "registerTime": "2017-08-02",
+      "lastEnter": "2018-10-27",
+      "planStarted": "2017-12-20",
+      "planExpired": "2018-12-20",
       "Scales": [
         {
           "ScaleTitle": "title7",

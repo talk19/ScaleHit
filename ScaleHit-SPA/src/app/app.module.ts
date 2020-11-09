@@ -7,6 +7,7 @@ import { ValueComponent } from './value/value.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RouterModule } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -17,6 +18,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { MainNavComponent } from './mainNav/mainNav.component';
@@ -30,10 +33,19 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { ScalesComponent } from './scales/scales.component';
 import { PlansComponent } from './plans/plans.component';
 import { appRoutes } from './routes';
+import { SystemAdminComponent } from './systemAdmin/systemAdmin.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserDetailResolver } from './_resolvers/userDetail.resolver';
+import { UsersListResolver } from './_resolvers/usersList.resolver';
+
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 
 @NgModule({
-  declarations: [								
+  declarations: [	
     AppComponent,
       ValueComponent,
       MainNavComponent,
@@ -42,7 +54,9 @@ import { appRoutes } from './routes';
       RegisterComponent,
       HomeNavComponent,
       ScalesComponent,
-      PlansComponent
+      PlansComponent,
+      SystemAdminComponent,
+      ProfileComponent
    ],
   imports: [
     BrowserModule,
@@ -51,6 +65,13 @@ import { appRoutes } from './routes';
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5001'],
+        disallowedRoutes: ['localhost:5001/api/auth']
+      }
+    }),
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
@@ -58,11 +79,15 @@ import { appRoutes } from './routes';
     MatInputModule,
     MatGridListModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    UserDetailResolver,
+    UsersListResolver
   ],
   bootstrap: [AppComponent]
 })

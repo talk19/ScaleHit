@@ -63,7 +63,9 @@ namespace ScaleHit.API.Controllers
             //create the claims that the token will hold
             var claims = new[] {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Username)
+                new Claim(ClaimTypes.Name, userFromRepo.Username),
+                new Claim(ClaimTypes.GivenName, userFromRepo.FirstName),
+                new Claim(ClaimTypes.Role, userFromRepo.EditorType)
             };
 
             //get the key that can decode the token

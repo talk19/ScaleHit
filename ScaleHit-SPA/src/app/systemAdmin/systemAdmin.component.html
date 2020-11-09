@@ -1,0 +1,52 @@
+<app-mainNav></app-mainNav>
+<table mat-table [dataSource]="users" multiTemplateDataRows class="mat-elevation-z8">
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef>שם מלא</th>
+    <td mat-cell *matCellDef="let user"> {{user.firstName}}&nbsp;{{user.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="editorType">
+    <th mat-header-cell *matHeaderCellDef>סוג הרשאה</th>
+    <td mat-cell *matCellDef="let user"> {{user.editorType}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastEnter">
+    <th mat-header-cell *matHeaderCellDef>כניסה אחרונה</th>
+    <td mat-cell *matCellDef="let user"> {{user.lastEnter}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>סטטוס</th>
+    <td mat-cell *matCellDef="let user"> {{user.status}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="scalesCount">
+    <th mat-header-cell *matHeaderCellDef>כמות פעילויות</th>
+    <td mat-cell *matCellDef="let user"> {{user.scalesCount}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let user" [attr.colspan]="displayedColumns.length">
+      <div class="example-element-detail" [@detailExpand]="user == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <p>מייל: {{user.username}}</p>
+          <p>טלפון: {{user.phone}}</p>
+          <p>מדינה: {{user.country}}</p>
+          <p>שם ארגון: {{user.organization}}</p>
+          <p>תאריך הרשמה: {{user.registerTime}}</p>
+          <p>תאריך תחילת תוכנית: {{user.planStarted}}</p>
+          <p>תאריך סיום תוכנית: {{user.planExpired}}</p>
+
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

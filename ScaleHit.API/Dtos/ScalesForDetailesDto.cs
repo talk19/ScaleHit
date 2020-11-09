@@ -4,7 +4,7 @@ namespace ScaleHit.API.Dtos
 {
     public class ScalesForDetailesDto
     {
-                public int Id { get; set; }
+        public int Id { get; set; }
         public string ScaleTitle { get; set; }
         public string ScaleType { get; set; }
         public string PointsValue { get; set; }
