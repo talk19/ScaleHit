@@ -13,8 +13,7 @@ namespace ScaleHit.API.Models
         public int ScaleCode { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
-        public bool IsPublish { get; set; }
-        public bool IsLive { get; set; }
+        public string ScaleStatus { get; set; }
         public bool IsLinearNavigation { get; set; }
         public string ScaleTopic { get; set; }
         public bool IsArchive { get; set; }

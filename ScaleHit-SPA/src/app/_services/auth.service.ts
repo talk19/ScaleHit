@@ -37,4 +37,8 @@ export class AuthService {
     // if the token expired - return false - the user is not logged in
     return !this.jwtHelper.isTokenExpired(token);
   }
+
+  updatePassword(id: number, password: any) {
+    return this.http.put(this.baseUrl + 'changePassword/' + id, password);
+  }
 }

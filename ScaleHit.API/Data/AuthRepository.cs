@@ -83,5 +83,30 @@ namespace ScaleHit.API.Data
             return false;
 
         }
+
+        public async Task<bool> PasswordCorrect(int userId, string password) {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if(!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return false;
+
+            return true;
+        }
+
+        public async Task<bool> UpdatePassword(int userId, string password) {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            byte[] passwordHash, passwordSalt;
+
+            //method to create Hashed password
+            //out keyword create refernce to the variables above, what the method update the reference, the also varibles updated
+            CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+
+            return await _context.SaveChangesAsync() > 0;
+
+        }
     }
 }

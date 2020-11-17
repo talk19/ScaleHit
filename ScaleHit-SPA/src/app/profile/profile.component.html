@@ -3,54 +3,72 @@
 <h2>הפרופיל שלי</h2>
 
 <section>
+
   <h3>פרטים אישיים</h3>
+    <form id="editForm" #editForm="ngForm" (ngSubmit)="updateUser()">
+      <button mat-button *ngIf="editForm.dirty" type="submit">
+        שמירה
+      </button>
+      <mat-form-field>
+        <mat-label>שם פרטי</mat-label>
+        <input
+          matInput
+          name="firstName"
+          placeholder="שם פרטי"
+          [(ngModel)]="user.firstName"
+        />
+      </mat-form-field>
 
-  <form>
-    <mat-form-field>
-      <mat-label>שם פרטי</mat-label>
-      <input matInput placeholder="שם פרטי" value="{{user.firstName}}"/>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>שם משפחה</mat-label>
+        <input
+          matInput
+          name="lastName"
+          placeholder="שם משפחה"
+          [(ngModel)]="user.lastName"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>שם משפחה</mat-label>
-      <input matInput placeholder="שם משפחה" value="{{user.lastName}}"/>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>טלפון</mat-label>
+        <input
+          matInput
+          name="phone"
+          placeholder="טלפון"
+          [(ngModel)]="user.phone"
+        />
+      </mat-form-field>
+      
+      <section>
+        <h4>מדינה</h4>
+        <p>{{ user.country }}</p>
+      </section>
+      <section>
+        <h4>שם ארגון</h4>
+        <p>{{ user.organization }}</p>
+      </section>
 
-    <mat-form-field>
-      <mat-label>טלפון</mat-label>
-      <input matInput placeholder="טלפון" value="{{user.phone}}"/>
-    </mat-form-field>
+    </form>
 
-    <mat-form-field>
-      <mat-label>מדינה</mat-label>
-      <input matInput placeholder="מדינה" value="{{user.country}}"/>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>שם ארגון</mat-label>
-      <input matInput placeholder="שם ארגון" value="{{user.organization}}"/>
-    </mat-form-field>
-  </form>
-
-</section>
-
+<hr />
 <section>
   <h3>פרטי חשבון</h3>
 
   <section>
     <h4>שם משתמש</h4>
-    <p>{{user.username}}</p>
-    <button mat-button>שינוי סיסמה</button>
+    <p>{{ user.username }}</p>
+    <button mat-button (click)="changePassword()">שינוי סיסמה</button>
   </section>
 
   <section>
     <h4>תאריך רכישה אחרון</h4>
-    <p>{{user.planStarted}}</p>
+    <p>{{ user.planStarted }}</p>
   </section>
 
   <section>
     <h4>תאריך חידוש קרוב</h4>
-    <p>{{user.planExpired}}</p>
+    <p>{{ user.planExpired }}</p>
   </section>
-
 </section>
+
+<app-changePassword *ngIf="isChangePassword"></app-changePassword>

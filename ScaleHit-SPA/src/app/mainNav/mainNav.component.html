@@ -9,7 +9,7 @@
     </mat-form-field>
     <button mat-button [matMenuTriggerFor]='menu'>Hello {{authService.decodedToken.given_name}}</button>
     <mat-menu #menu="matMenu">
-      <a mat-menu-item [routerLink]="['/profile/', authService.decodedToken.nameid]" routerLinkActive="router-link-active">הפרופיל שלי</a>
+      <a mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active">הפרופיל שלי</a>
       <a mat-menu-item>הפעילויות שלי</a>
       <a mat-menu-item *ngIf="authService.decodedToken.role == 'admin'" [routerLink]="['/systemAdmin']" routerLinkActive="router-link-active">ניהול מערכת</a>
       <a mat-menu-item>תוכניות ומחירים</a>
@@ -21,3 +21,5 @@
     <button mat-stroked-button (click)="logOut()">התנתקות</button>
   </div>
 </mat-toolbar>
+
+<!--[routerLink]="['/profile/', authService.decodedToken.nameid]"-->

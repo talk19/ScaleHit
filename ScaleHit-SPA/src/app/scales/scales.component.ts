@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Scale } from '../_models/scale';
+import { ActivatedRoute } from '@angular/router';
+import { ScaleService } from '../_services/scale.service';
 
 @Component({
   selector: 'app-scales',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScalesComponent implements OnInit {
 
-  constructor() { }
+  scales: Scale[];
+ displayedColumns: string[] = ['scaleTitle', 'scaleCode', 'scaleStatus', 'scalefinished', 'scaleDates', 'editBtns'];
+  // dataSource: '';
+  constructor(private route: ActivatedRoute, private scaleService: ScaleService) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+       this.scales = data['scales'];
+       console.log(this.scales);
+    });
   }
+
+
 
 }

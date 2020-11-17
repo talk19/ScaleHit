@@ -11,6 +11,8 @@ namespace ScaleHit.API.helpers
             CreateMap<User, UserForListDto>();
             CreateMap<User, UserForDetailesDto>();
             CreateMap<Scale, ScalesForDetailesDto>();
+            CreateMap<UserForUpdateDto, User>();
+            CreateMap<Scale, ScalesForListDto>();
         }
     }
 }

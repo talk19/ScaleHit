@@ -51,8 +51,6 @@ namespace ScaleHit.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            
-
             //method in AuthRepository, acsses via the repository interface called _repo
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
@@ -91,6 +89,20 @@ namespace ScaleHit.API.Controllers
             return Ok(new {
                 token = tokenHandler.WriteToken(token)
             });
+        }
+
+        [HttpPut("changePassword/{id}")]
+        public async Task<IActionResult> UpdatePassword(int id, PasswordForUpdateDto passwordForUpdateDto) {
+            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            if(!await _repo.PasswordCorrect(id, passwordForUpdateDto.OldPassword)) 
+                return Unauthorized();
+
+            if(await _repo.UpdatePassword(id, passwordForUpdateDto.NewPassword))
+                return Ok();
+
+            return BadRequest("saveFail");
         }
     }
 }

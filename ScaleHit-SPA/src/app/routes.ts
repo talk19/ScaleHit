@@ -9,6 +9,8 @@ import { SystemAdminComponent } from './systemAdmin/systemAdmin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserDetailResolver } from './_resolvers/userDetail.resolver';
 import { UsersListResolver } from './_resolvers/usersList.resolver';
+import { preventUnsavedChanges } from './_guards/preventUnsaveChanges.guard';
+import { ScalesListResolver } from './_resolvers/scalesList.resolver';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -20,10 +22,13 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            {path: 'scales', component: ScalesComponent},
+            {path: 'scales', component: ScalesComponent, resolve: {scales: ScalesListResolver}},
             {path: 'systemAdmin', component: SystemAdminComponent, resolve: {users: UsersListResolver}},
-            {path: 'profile/:id', component: ProfileComponent, resolve: {user: UserDetailResolver}},
+            {path: 'profile', component: ProfileComponent, resolve: {user: UserDetailResolver}, canDeactivate: [preventUnsavedChanges]}
+            // {path: 'profile/changePassword', component: ChangePasswordComponent}
         ]
     },
     {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
+
+// {path: 'profile/:id', component: ProfileComponent, resolve: {user: UserDetailResolver}},

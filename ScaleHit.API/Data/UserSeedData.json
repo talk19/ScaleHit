@@ -19,8 +19,7 @@
           "MaxPoint": 6,
           "MinPoint": 0,
           "ScaleCode": 793,
-          "IsPublish": true,
-          "IsLive": false,
+          "ScaleStatus": "active",
           "IsLinearNavigation": false,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -32,8 +31,7 @@
           "MaxPoint": 9,
           "MinPoint": 1,
           "ScaleCode": 663,
-          "IsPublish": true,
-          "IsLive": false,
+          "ScaleStatus": "notActive",
           "IsLinearNavigation": false,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -45,8 +43,7 @@
           "MaxPoint": 10,
           "MinPoint": 0,
           "ScaleCode": 363,
-          "IsPublish": true,
-          "IsLive": false,
+          "ScaleStatus": "live",
           "IsLinearNavigation": true,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -73,8 +70,7 @@
           "MaxPoint": 1,
           "MinPoint": 8,
           "ScaleCode": 701,
-          "IsPublish": true,
-          "IsLive": false,
+          "ScaleStatus": "active",
           "IsLinearNavigation": false,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -86,8 +82,7 @@
           "MaxPoint": 3,
           "MinPoint": 2,
           "ScaleCode": 412,
-          "IsPublish": true,
-          "IsLive": false,
+          "ScaleStatus": "active",
           "IsLinearNavigation": true,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -99,8 +94,7 @@
           "MaxPoint": 5,
           "MinPoint": 6,
           "ScaleCode": 102,
-          "IsPublish": true,
-          "IsLive": true,
+          "ScaleStatus": "active",
           "IsLinearNavigation": false,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -129,8 +123,7 @@
           "MaxPoint": 5,
           "MinPoint": 3,
           "ScaleCode": 455,
-          "IsPublish": false,
-          "IsLive": false,
+          "ScaleStatus": "active",
           "IsLinearNavigation": true,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -142,8 +135,7 @@
           "MaxPoint": 5,
           "MinPoint": 8,
           "ScaleCode": 393,
-          "IsPublish": false,
-          "IsLive": true,
+          "ScaleStatus": "active",
           "IsLinearNavigation": true,
           "ScaleTopic": "topic",
           "GradeType": "grade"
@@ -155,8 +147,7 @@
           "MaxPoint": 10,
           "MinPoint": 1,
           "ScaleCode": 370,
-          "IsPublish": true,
-          "IsLive": true,
+          "ScaleStatus": "active",
           "IsLinearNavigation": true,
           "ScaleTopic": "topic",
           "GradeType": "grade"

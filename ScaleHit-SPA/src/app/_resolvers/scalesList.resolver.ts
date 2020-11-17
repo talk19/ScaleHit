@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
 import {User} from '../_models/user';
 import {Resolve, Router, ActivatedRouteSnapshot} from '@angular/router';
-import { UserService } from '../_services/user.service';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ScaleService } from '../_services/scale.service';
 
 @Injectable()
-export class UsersListResolver implements Resolve<User[]> {
-    constructor(private userService: UserService, private router: Router) {}
+export class ScalesListResolver implements Resolve<User[]> {
+    constructor(private scaleService: ScaleService, private router: Router) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<User[]> {
-        return this.userService.getUsers().pipe(
+        return this.scaleService.getScales().pipe(
             catchError(error => {
                 console.log(error);
-                this.router.navigate(['/scales']);
+                this.router.navigate(['/home']);
 
                 return of(null);
             })

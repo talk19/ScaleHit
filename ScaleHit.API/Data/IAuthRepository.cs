@@ -12,5 +12,9 @@ namespace ScaleHit.API.Data
 
          Task<bool> UserExists(string username);
 
+         Task<bool> PasswordCorrect(int userId, string password);
+
+         Task<bool> UpdatePassword(int userId, string password);
+
     }
 }

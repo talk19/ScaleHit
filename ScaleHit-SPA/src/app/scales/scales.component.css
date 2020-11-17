@@ -1,0 +1,15 @@
+table.mat-table {
+    width: 100%;
+}
+
+tr.mat-row:hover .editBtns {
+    visibility: visible;
+}
+
+.editBtns {
+    visibility: hidden;
+}
+
+th.mat-header-cell {
+    text-align: right;
+}

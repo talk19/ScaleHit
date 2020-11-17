@@ -9,8 +9,8 @@ using ScaleHit.API.Data;
 namespace ScaleHit.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201104121829_addUserData")]
-    partial class addUserData
+    [Migration("20201116145840_createDbAgain")]
+    partial class createDbAgain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,12 +39,6 @@ namespace ScaleHit.API.Migrations
                     b.Property<bool>("IsLinearNavigation")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsLive")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsPublish")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("MaxPoint")
                         .HasColumnType("TEXT");
 
@@ -59,6 +53,9 @@ namespace ScaleHit.API.Migrations
 
                     b.Property<int>("ScaleCode")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ScaleStatus")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ScaleTitle")
                         .HasColumnType("TEXT");

@@ -37,12 +37,6 @@ namespace ScaleHit.API.Migrations
                     b.Property<bool>("IsLinearNavigation")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsLive")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsPublish")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("MaxPoint")
                         .HasColumnType("TEXT");
 
@@ -57,6 +51,9 @@ namespace ScaleHit.API.Migrations
 
                     b.Property<int>("ScaleCode")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("ScaleStatus")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ScaleTitle")
                         .HasColumnType("TEXT");

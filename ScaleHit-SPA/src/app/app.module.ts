@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { MainNavComponent } from './mainNav/mainNav.component';
@@ -37,6 +38,9 @@ import { SystemAdminComponent } from './systemAdmin/systemAdmin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserDetailResolver } from './_resolvers/userDetail.resolver';
 import { UsersListResolver } from './_resolvers/usersList.resolver';
+import { preventUnsavedChanges } from './_guards/preventUnsaveChanges.guard';
+import { ChangePasswordComponent } from './profile/changePassword/changePassword.component';
+import { ScalesListResolver } from './_resolvers/scalesList.resolver';
 
 
 export function tokenGetter() {
@@ -56,7 +60,8 @@ export function tokenGetter() {
       ScalesComponent,
       PlansComponent,
       SystemAdminComponent,
-      ProfileComponent
+      ProfileComponent,
+      ChangePasswordComponent
    ],
   imports: [
     BrowserModule,
@@ -81,13 +86,16 @@ export function tokenGetter() {
     MatIconModule,
     MatSelectModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule
   ],
   providers: [
     AuthService,
     ErrorInterceptorProvider,
     UserDetailResolver,
-    UsersListResolver
+    UsersListResolver,
+    preventUnsavedChanges,
+    ScalesListResolver
   ],
   bootstrap: [AppComponent]
 })

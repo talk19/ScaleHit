@@ -27,18 +27,6 @@ export class SystemAdminComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.users = data['users'];
-    })
-  }
-
-  /*
-  loadUsers() {
-    this.userService.getUsers(). subscribe((users: User[]) => {
-      this.users = users;
-      console.log(users);
-      //this.dataSource = users;
-    }, error => {
-      console.log(error);
     });
   }
-  */
 }
