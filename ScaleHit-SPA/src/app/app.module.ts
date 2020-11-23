@@ -21,6 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { MainNavComponent } from './mainNav/mainNav.component';
@@ -41,6 +43,8 @@ import { UsersListResolver } from './_resolvers/usersList.resolver';
 import { preventUnsavedChanges } from './_guards/preventUnsaveChanges.guard';
 import { ChangePasswordComponent } from './profile/changePassword/changePassword.component';
 import { ScalesListResolver } from './_resolvers/scalesList.resolver';
+import { CreateScaleComponent } from './scales/createScale/createScale.component';
+import { DeleteMessageComponent } from './deleteMessage/deleteMessage.component';
 
 
 export function tokenGetter() {
@@ -49,7 +53,7 @@ export function tokenGetter() {
 
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
       ValueComponent,
       MainNavComponent,
@@ -61,7 +65,9 @@ export function tokenGetter() {
       PlansComponent,
       SystemAdminComponent,
       ProfileComponent,
-      ChangePasswordComponent
+      ChangePasswordComponent,
+      CreateScaleComponent,
+      DeleteMessageComponent
    ],
   imports: [
     BrowserModule,
@@ -87,7 +93,9 @@ export function tokenGetter() {
     MatSelectModule,
     MatMenuModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [
     AuthService,

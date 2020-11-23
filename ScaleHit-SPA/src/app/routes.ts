@@ -11,6 +11,7 @@ import { UserDetailResolver } from './_resolvers/userDetail.resolver';
 import { UsersListResolver } from './_resolvers/usersList.resolver';
 import { preventUnsavedChanges } from './_guards/preventUnsaveChanges.guard';
 import { ScalesListResolver } from './_resolvers/scalesList.resolver';
+import { CreateScaleComponent } from './scales/createScale/createScale.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -24,8 +25,8 @@ export const appRoutes: Routes = [
         children: [
             {path: 'scales', component: ScalesComponent, resolve: {scales: ScalesListResolver}},
             {path: 'systemAdmin', component: SystemAdminComponent, resolve: {users: UsersListResolver}},
-            {path: 'profile', component: ProfileComponent, resolve: {user: UserDetailResolver}, canDeactivate: [preventUnsavedChanges]}
-            // {path: 'profile/changePassword', component: ChangePasswordComponent}
+            {path: 'profile', component: ProfileComponent, resolve: {user: UserDetailResolver}, canDeactivate: [preventUnsavedChanges]},
+            {path: 'scales/create', component: CreateScaleComponent}
         ]
     },
     {path: '**', redirectTo: '', pathMatch: 'full'}

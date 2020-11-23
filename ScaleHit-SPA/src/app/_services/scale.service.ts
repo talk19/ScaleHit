@@ -5,19 +5,27 @@ import { Observable } from 'rxjs';
 import { Scale } from '../_models/scale';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScaleService {
-
   baseUrl = environment.apiUrl;
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-getScales(): Observable<Scale[]> {
-  return this.http.get<Scale[]>(this.baseUrl + 'Scales');
-}
+  getScales(userId: number): Observable<Scale[]> {
+    return this.http.get<Scale[]>(
+      this.baseUrl + userId + '/Scales'
+    );
+  }
 
-getScale(id): Observable<Scale> {
-  return this.http.get<Scale>(this.baseUrl + 'Scales/' + id);
-}
+  getScale(userId: number, id: number): Observable<Scale> {
+    return this.http.get<Scale>(
+      this.baseUrl + userId + 'Scales/' + id
+    );
+  }
 
+  deleteScale(userId: number, id: number) {
+    return this.http.delete(this.baseUrl + userId + '/Scales/' + id);
+  }
+
+  // http://localhost:5001/api/1/Scales/11
 }

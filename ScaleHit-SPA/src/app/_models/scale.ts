@@ -8,10 +8,10 @@ export interface Scale {
     scaleCode: number;
     dateCreated: Date;
     dateModified: Date;
-    isPublish: boolean;
-    isLinearNavigation: boolean;
+    scaleStatus: string;
+    navigationType: string;
     scaleTopic: string;
     isArchive: boolean;
-    gradeType: string;
+    isGradeDisplay: boolean;
     pointXml: string;
 }

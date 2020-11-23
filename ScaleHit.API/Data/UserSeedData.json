@@ -20,9 +20,9 @@
           "MinPoint": 0,
           "ScaleCode": 793,
           "ScaleStatus": "active",
-          "IsLinearNavigation": false,
+          "NavigationType": "free",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": true
         },
         {
           "ScaleTitle": "title2",
@@ -32,9 +32,9 @@
           "MinPoint": 1,
           "ScaleCode": 663,
           "ScaleStatus": "notActive",
-          "IsLinearNavigation": false,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         },
         {
           "ScaleTitle": "title3",
@@ -44,9 +44,9 @@
           "MinPoint": 0,
           "ScaleCode": 363,
           "ScaleStatus": "live",
-          "IsLinearNavigation": true,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         }
       ]
     },
@@ -71,9 +71,9 @@
           "MinPoint": 8,
           "ScaleCode": 701,
           "ScaleStatus": "active",
-          "IsLinearNavigation": false,
+          "NavigationType": "free",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         },
         {
           "ScaleTitle": "title5",
@@ -83,9 +83,9 @@
           "MinPoint": 2,
           "ScaleCode": 412,
           "ScaleStatus": "active",
-          "IsLinearNavigation": true,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         },
         {
           "ScaleTitle": "title6",
@@ -95,9 +95,9 @@
           "MinPoint": 6,
           "ScaleCode": 102,
           "ScaleStatus": "active",
-          "IsLinearNavigation": false,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         }
       ]
     },
@@ -124,9 +124,9 @@
           "MinPoint": 3,
           "ScaleCode": 455,
           "ScaleStatus": "active",
-          "IsLinearNavigation": true,
+          "NavigationType": "free",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         },
         {
           "ScaleTitle": "title8",
@@ -136,9 +136,9 @@
           "MinPoint": 8,
           "ScaleCode": 393,
           "ScaleStatus": "active",
-          "IsLinearNavigation": true,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         },
         {
           "ScaleTitle": "title9",
@@ -148,9 +148,9 @@
           "MinPoint": 1,
           "ScaleCode": 370,
           "ScaleStatus": "active",
-          "IsLinearNavigation": true,
+          "NavigationType": "linear",
           "ScaleTopic": "topic",
-          "GradeType": "grade"
+          "IsGradeDisplay": false
         }
       ]
     }

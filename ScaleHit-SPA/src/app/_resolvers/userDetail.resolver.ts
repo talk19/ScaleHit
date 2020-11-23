@@ -19,7 +19,6 @@ export class UserDetailResolver implements Resolve<User> {
             catchError(error => {
                 console.log(error);
                 // this.router.navigate(['/scales']);
-
                 return of(null);
             })
         );

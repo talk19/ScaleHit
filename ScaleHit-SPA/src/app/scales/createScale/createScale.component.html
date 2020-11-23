@@ -1,0 +1,29 @@
+<app-mainNav></app-mainNav>
+<h2>יצירת פעילות חדשה</h2>
+
+<form id="createForm" #editForm="ngForm">
+  <div>
+    <mat-form-field>
+      <mat-label>שם הפעילות</mat-label>
+      <input matInput name="scaleTitle" [(ngModel)]="scale.scaleTitle" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>נושא הפעילות</mat-label>
+      <input matInput name="scaleTopic" [(ngModel)]="scale.scaleTopic" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>צורת ניווט</mat-label>
+      <mat-select [(ngModel)]="scale.navigationType">
+        <mat-option value="linear">לינארי</mat-option>
+        <mat-option value="free">חופשי</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="scale.isGradeDisplay">הצגת ציון בסיום הפעילות</mat-checkbox>
+  </div>
+  <div>
+    
+  </div>
+</form>

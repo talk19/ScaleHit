@@ -1,26 +1,27 @@
 using System;
 
-namespace ScaleHit.API.Models
+namespace ScaleHit.API.Dtos
 {
-    public class Scale
+    public class ScaleForCreationDto
     {
-        public int Id { get; set; }
         public string ScaleTitle { get; set; }
         public string ScaleType { get; set; }
         public string PointsValue { get; set; }
+        public int ScaleCode { get; set; }
         public string MaxPoint { get; set; }
         public string MinPoint { get; set; }
-        public int ScaleCode { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public string ScaleStatus { get; set; }
-        public string NavigationType { get; set; }
+        public bool IsLinearNavigation { get; set; }
         public string ScaleTopic { get; set; }
-        public bool IsArchive { get; set; }
-        public bool IsGradeDisplay { get; set; }
-        public string PointsXml { get; set; }
-        public User User { get; set; }
-        public int UserId { get; set; }
+        public string GradeType { get; set; }
 
+        public ScaleForCreationDto()
+        {
+            DateCreated = DateTime.Now;
+            DateModified = DateTime.Now;
+            ScaleStatus = "notActive";
+        }
     }
 }

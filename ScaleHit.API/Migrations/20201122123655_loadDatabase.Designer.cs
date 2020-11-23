@@ -9,8 +9,8 @@ using ScaleHit.API.Data;
 namespace ScaleHit.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201116145840_createDbAgain")]
-    partial class createDbAgain
+    [Migration("20201122123655_loadDatabase")]
+    partial class loadDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,19 +30,19 @@ namespace ScaleHit.API.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("GradeType")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("IsArchive")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsLinearNavigation")
+                    b.Property<bool>("IsGradeDisplay")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MaxPoint")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MinPoint")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NavigationType")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PointsValue")

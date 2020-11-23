@@ -28,19 +28,19 @@ namespace ScaleHit.API.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("GradeType")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("IsArchive")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsLinearNavigation")
+                    b.Property<bool>("IsGradeDisplay")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MaxPoint")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MinPoint")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NavigationType")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PointsValue")

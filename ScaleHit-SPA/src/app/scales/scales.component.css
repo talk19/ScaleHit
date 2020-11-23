@@ -2,14 +2,33 @@ table.mat-table {
     width: 100%;
 }
 
-tr.mat-row:hover .editBtns {
-    visibility: visible;
-}
-
-.editBtns {
-    visibility: hidden;
-}
-
 th.mat-header-cell {
     text-align: right;
+}
+
+.mat-column-scaleCode,
+.mat-column-scaleStatus,
+.mat-column-scalefinished {
+    width: 13%;
+}
+
+.mat-column-scaleTitle,
+.mat-column-scaleDates,
+.mat-column-editBtns {
+width: 33%;
+}
+
+
+tr.mat-row:hover .mat-column-editBtns,
+tr.mat-row.isOpen .mat-column-editBtns {
+    display: table-cell;
+}
+
+tr.mat-row .mat-column-editBtns {
+    display: none;
+}
+
+tr.mat-row:hover .mat-column-scaleDates,
+tr.mat-row.isOpen .mat-column-scaleDates {
+    display: none;
 }

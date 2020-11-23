@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ScaleHit.API.Migrations
 {
-    public partial class createDbAgain : Migration
+    public partial class loadDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,10 +61,10 @@ namespace ScaleHit.API.Migrations
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: false),
                     ScaleStatus = table.Column<string>(nullable: true),
-                    IsLinearNavigation = table.Column<bool>(nullable: false),
+                    NavigationType = table.Column<string>(nullable: true),
                     ScaleTopic = table.Column<string>(nullable: true),
                     IsArchive = table.Column<bool>(nullable: false),
-                    GradeType = table.Column<string>(nullable: true),
+                    IsGradeDisplay = table.Column<bool>(nullable: false),
                     PointsXml = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
                 },
