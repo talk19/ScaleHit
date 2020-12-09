@@ -57,18 +57,18 @@
   <section>
     <h4>שם משתמש</h4>
     <p>{{ user.username }}</p>
-    <button mat-button (click)="changePassword()">שינוי סיסמה</button>
+    <button mat-button (click)="openModal()">שינוי סיסמה</button>
   </section>
 
   <section>
     <h4>תאריך רכישה אחרון</h4>
-    <p>{{ user.planStarted }}</p>
+    <p>{{ user.planStarted | date: 'dd/MM/yyyy'}}</p>
   </section>
 
   <section>
     <h4>תאריך חידוש קרוב</h4>
-    <p>{{ user.planExpired }}</p>
+    <p>{{ user.planExpired | date: 'dd/MM/yyyy'}}</p>
   </section>
 </section>
 
-<app-changePassword *ngIf="isChangePassword"></app-changePassword>
+<!-- <app-changePassword *ngIf="isChangePassword"></app-changePassword> -->

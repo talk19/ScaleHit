@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -18,8 +19,10 @@ namespace ScaleHit.API.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly IMapper _mapper;
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
         {
+            _mapper = mapper;
             _config = config;
             _repo = repo;
 
@@ -36,15 +39,13 @@ namespace ScaleHit.API.Controllers
                 return BadRequest("username exist");
 
             //create new user with username only
-            var userToCreate = new User
-            {
-                Username = userForRegisterDto.Username
-            };
+            var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
             //method in AuthRepository that create the user with hashed password
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
-            return StatusCode(201);
+            var userToReturn = _mapper.Map<UserForDetailesDto>(createdUser);
+            return CreatedAtRoute("getUser", new {controller = "Users", id = createdUser.Id}, userToReturn);
 
         }
 
@@ -73,7 +74,8 @@ namespace ScaleHit.API.Controllers
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             //create the token data
-            var tokenDescriptor = new SecurityTokenDescriptor {
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
@@ -86,20 +88,22 @@ namespace ScaleHit.API.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             //send the token to the user
-            return Ok(new {
+            return Ok(new
+            {
                 token = tokenHandler.WriteToken(token)
             });
         }
 
         [HttpPut("changePassword/{id}")]
-        public async Task<IActionResult> UpdatePassword(int id, PasswordForUpdateDto passwordForUpdateDto) {
+        public async Task<IActionResult> UpdatePassword(int id, PasswordForUpdateDto passwordForUpdateDto)
+        {
             if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
-            if(!await _repo.PasswordCorrect(id, passwordForUpdateDto.OldPassword)) 
+            if (!await _repo.PasswordCorrect(id, passwordForUpdateDto.OldPassword))
                 return Unauthorized();
 
-            if(await _repo.UpdatePassword(id, passwordForUpdateDto.NewPassword))
+            if (await _repo.UpdatePassword(id, passwordForUpdateDto.NewPassword))
                 return Ok();
 
             return BadRequest("saveFail");

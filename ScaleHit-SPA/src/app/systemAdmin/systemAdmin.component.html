@@ -12,7 +12,7 @@
 
   <ng-container matColumnDef="lastEnter">
     <th mat-header-cell *matHeaderCellDef>כניסה אחרונה</th>
-    <td mat-cell *matCellDef="let user"> {{user.lastEnter}}</td>
+    <td mat-cell *matCellDef="let user"> {{user.lastEnter | date: 'dd/MM/yyyy'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="status">
@@ -33,9 +33,9 @@
           <p>טלפון: {{user.phone}}</p>
           <p>מדינה: {{user.country}}</p>
           <p>שם ארגון: {{user.organization}}</p>
-          <p>תאריך הרשמה: {{user.registerTime}}</p>
-          <p>תאריך תחילת תוכנית: {{user.planStarted}}</p>
-          <p>תאריך סיום תוכנית: {{user.planExpired}}</p>
+          <p>תאריך הרשמה: {{user.registerTime | date: 'dd/MM/yyyy'}}</p>
+          <p>תאריך תחילת תוכנית: {{user.planStarted | date: 'dd/MM/yyyy'}}</p>
+          <p>תאריך סיום תוכנית: {{user.planExpired | date: 'dd/MM/yyyy'}}</p>
 
         </div>
       </div>

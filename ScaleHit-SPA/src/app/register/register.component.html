@@ -1,15 +1,111 @@
 <app-homeNav></app-homeNav>
 <h2>הרשמה</h2>
-<form #loginForm="ngForm" (ngSubmit)="register()">
-  <mat-form-field appearance="standard">
-    <mat-label>שם משתמש</mat-label>
-    <input matInput required placeholder="כתובת מייל" [(ngModel)]="model.username" name="username">
-  </mat-form-field>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <section>
+    <h3>פרטים אישיים</h3>
+    <mat-form-field appearance="standard">
+      <mat-label>שם פרטי</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="firstName"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('firstName').invalid">
+        יש למלא שם פרטי
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>שם משפחה</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="lastName"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('lastName').invalid">
+        יש למלא שם משפחה
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>מספר טלפון</mat-label>
+      <input
+        matInput
+        type="tel"
+        formControlName="phone"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('phone').invalid">
+        יש למלא מספר טלפון
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>מדינה</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="country"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('country').invalid">
+        יש למלא מספר טלפון
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>ארגון</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="organization"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="standard">
-    <mat-label>סיסמה</mat-label>
-    <input matInput required type="password" placeholder="סיסמה" [(ngModel)]="model.password" name="password">
-  </mat-form-field>
+  </section>
+  <section>
+    <h3>פרטי התחברות</h3>
+    <mat-form-field appearance="standard">
+      <mat-label>שם משתמש</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="כתובת מייל"
+        formControlName="username"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('username').invalid">
+        יש להזין כתובת מייל תקינה
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button type="submit">הרשמה</button>
+    <mat-form-field appearance="standard">
+      <mat-label>סיסמה</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="סיסמה"
+        formControlName="password"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="registerForm.get('password').invalid">
+        יש להזין סיסמה מעל ל-6 תווים
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>אימות סיסמה</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="אימות סיסמה"
+        formControlName="confirmPassword"
+        [errorStateMatcher]="passMatcher"
+      />
+      <mat-error *ngIf="registerForm.hasError('mismatch')">
+        הסיסמאות חייבות להיות תואמות
+      </mat-error>
+    </mat-form-field>
+  </section>
+  <button mat-raised-button type="submit" [disabled]="registerForm.invalid">
+    הרשמה
+  </button>
 </form>

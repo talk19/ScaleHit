@@ -26,6 +26,4 @@ export class ScaleService {
   deleteScale(userId: number, id: number) {
     return this.http.delete(this.baseUrl + userId + '/Scales/' + id);
   }
-
-  // http://localhost:5001/api/1/Scales/11
 }

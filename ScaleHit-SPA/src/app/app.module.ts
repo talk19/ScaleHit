@@ -23,11 +23,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { MainNavComponent } from './mainNav/mainNav.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -47,13 +48,14 @@ import { CreateScaleComponent } from './scales/createScale/createScale.component
 import { DeleteMessageComponent } from './deleteMessage/deleteMessage.component';
 
 
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       ValueComponent,
       MainNavComponent,
@@ -73,6 +75,7 @@ export function tokenGetter() {
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
@@ -95,7 +98,9 @@ export function tokenGetter() {
     MatTableModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthService,

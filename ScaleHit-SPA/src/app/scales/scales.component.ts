@@ -5,7 +5,7 @@ import { ScaleService } from '../_services/scale.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteMessageComponent } from '../deleteMessage/deleteMessage.component';
 import { AuthService } from '../_services/auth.service';
-import { MatTableModule, MatTable } from '@angular/material/table';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-scales',
@@ -13,8 +13,7 @@ import { MatTableModule, MatTable } from '@angular/material/table';
   styleUrls: ['./scales.component.css'],
 })
 export class ScalesComponent implements OnInit {
-  // @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-  // @ViewChild('scalesTable') scalesTable: MatTableModule;
+
   @ViewChild(MatTable, {static: true}) scalesTable: MatTable<any>;
 
   scales: Scale[];

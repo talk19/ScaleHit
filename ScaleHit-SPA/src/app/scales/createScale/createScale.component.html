@@ -1,29 +1,106 @@
 <app-mainNav></app-mainNav>
 <h2>יצירת פעילות חדשה</h2>
 
-<form id="createForm" #editForm="ngForm">
+<form [formGroup]="createScaleForm">
   <div>
     <mat-form-field>
       <mat-label>שם הפעילות</mat-label>
-      <input matInput name="scaleTitle" [(ngModel)]="scale.scaleTitle" />
+      <input
+        matInput
+        formControlName="scaleName"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="createScaleForm.get('scaleName').invalid">
+        יש למלא שם לפעילות
+      </mat-error>
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>נושא הפעילות</mat-label>
-      <input matInput name="scaleTopic" [(ngModel)]="scale.scaleTopic" />
+      <input
+        matInput
+        formControlName="scaleTopic"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="createScaleForm.get('scaleTopic').invalid">
+        יש למלא נושא לפעילות
+      </mat-error>
     </mat-form-field>
-
     <mat-form-field>
-      <mat-label>צורת ניווט</mat-label>
-      <mat-select [(ngModel)]="scale.navigationType">
-        <mat-option value="linear">לינארי</mat-option>
-        <mat-option value="free">חופשי</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-label>סוג הניווט</mat-label>
 
-    <mat-checkbox [(ngModel)]="scale.isGradeDisplay">הצגת ציון בסיום הפעילות</mat-checkbox>
+      <mat-select
+        matInput
+        formControlName="navigationType"
+        [errorStateMatcher]="matcher"
+      >
+        <mat-option *ngFor="let type of navigationTypes" [value]="type.value">{{type.text}}</mat-option>
+       
+      </mat-select>
+      <mat-error *ngIf="createScaleForm.get('navigationType').invalid">
+        יש לבחור סוג ניווט
+      </mat-error>
+    </mat-form-field>
+    <mat-checkbox formControlName="showGrade"
+      >הצגת ציון בסיום הפעילות</mat-checkbox
+    >
+    <mat-form-field>
+      <mat-label>מבנה הפעילות</mat-label>
+
+      <mat-select
+        matInput
+        formControlName="scaleType"
+        [errorStateMatcher]="matcher"
+      >
+        <mat-option *ngFor="let type of scaleTypes" [value]="type.value">{{type.text}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="createScaleForm.get('scaleType').invalid">
+        יש לבחור מבנה פעילות
+      </mat-error>
+    </mat-form-field>
+    <div *ngIf="createScaleForm.get('scaleType').value == 'time'">
+      <mat-form-field>
+        <mat-label>מבנה תאריך</mat-label>
+
+        <mat-select
+          matInput
+          formControlName="dateType"
+          [errorStateMatcher]="matcher"
+        >
+          <mat-option *ngFor="let type of dateTypes" [value]="type.value">{{type.text}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="createScaleForm.get('dateType').invalid">
+          יש לבחור מבנה תאריך
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- <mat-form-field *ngIf="createScaleForm.get('dateType').value == 'years' || createScaleForm.get('dateType').value == 'monthYear'">
+        <mat-label>התחלה</mat-label>
+        <input
+          matInput
+          formControlName="startYear"
+          [errorStateMatcher]="matcher"
+          placeholder="שנה"
+        />
+        <mat-error *ngIf="createScaleForm.get('startYear').invalid">
+          יש למלא שנה תקינה
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field *ngIf="createScaleForm.get('dateType').value == 'years' || createScaleForm.get('dateType').value == 'monthYear'">
+        <mat-label>סיום</mat-label>
+        <input
+          matInput
+          formControlName="endYear"
+          [errorStateMatcher]="matcher"
+          placeholder="שנה"
+        />
+        <mat-error *ngIf="createScaleForm.get('endYear').invalid">
+          יש למלא שנה תקינה
+        </mat-error>
+      </mat-form-field> -->
+      
+    </div>
   </div>
-  <div>
-    
-  </div>
+  <div></div>
 </form>
+
+
